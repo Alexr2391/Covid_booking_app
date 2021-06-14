@@ -1,0 +1,764 @@
+@import "./mixins.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  user-select: none;
+}
+:root {
+  font-size: 1em;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.btn-info {
+  cursor: pointer;
+  width: 120px;
+  padding: 10px;
+  color: #fff;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.cancel-button {
+  background-color: rgb(182, 4, 4);
+  &:hover {
+    background-color: rgb(151, 8, 8);
+  }
+}
+.send-button {
+  background-color: rgb(0, 81, 157);
+  &:hover {
+    background-color: rgb(2, 56, 106);
+  }
+}
+
+.data-alerts {
+  @include dimensions(false, 100%);
+  transition: 0.2s ease-in-out;
+  @include flexBox(center, center);
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  &.showmessage {
+    background-color: rgba(19, 80, 19, 0.501);
+    padding: 10px;
+    color: green;
+    color: #fff;
+  }
+}
+
+.notice {
+  background-color: #0082c3;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.root {
+  margin: 0 auto;
+
+  @include dimensions(false, 60%);
+}
+.select-layout {
+  margin-top: 15px;
+  @include flexBox(center, center, column);
+}
+.selector-placeholder {
+  position: relative;
+  overflow: hidden;
+  margin: 15px auto;
+
+  .store_select {
+    height: 30px;
+    width: 100%;
+    font-size: 1.05em;
+    height: 50px;
+    min-width: 250px;
+    outline: blue;
+    border: none;
+    outline-width: 0;
+    background-color: #0082c3;
+    cursor: pointer;
+    pointer-events: all;
+    color: white;
+    text-indent: 10px;
+    option {
+      line-height: 20px;
+    }
+  }
+  .selector_selected {
+    position: absolute;
+    height: 50px;
+    width: 40px;
+    background-color: #004263;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .fa-chevron-down {
+      color: white;
+    }
+  }
+}
+
+.user-steps-header {
+  padding: 20px;
+  text-align: center;
+  @include attr(
+    background-image,
+    linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)
+  );
+  @include dimensions(false, 100%);
+  box-shadow: 0 0 4px 1px rgba($color: #000000, $alpha: 0.1);
+  border-radius: 5px;
+  &.m2 {
+    margin: 20px 0;
+  }
+  &.m4 {
+    margin: 40px 0;
+  }
+}
+.dkt-button {
+  cursor: pointer;
+  width: 200px;
+  padding: 15px 0;
+  font-size: 1.2em;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: #0082c3;
+  margin: 15px auto;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  &:hover {
+    background-color: #004b70;
+  }
+}
+
+.messages {
+  margin-bottom: 15px;
+}
+
+.headMessage {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid rgb(14, 94, 14);
+  border-bottom: 1px solid rgb(14, 94, 14);
+  padding: 10px 0;
+  background-color: rgba(83, 202, 83, 0.618);
+  color: rgb(14, 94, 14);
+}
+
+.nav-header {
+  @include dimensions(80px, 100%);
+  background-color: rgb(243, 243, 243);
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  -ms-flex-align: center;
+  justify-items: center;
+  box-shadow: 0 0 4px 3px rgba($color: #000000, $alpha: 0.3);
+
+  .logo-placeholder {
+    margin: 5px;
+    @include dimensions(inherit, 80%);
+    @include flexBox(center, center);
+    display: -ms-flexbox;
+    .logo-img {
+      height: 90%;
+    }
+  }
+}
+
+.user-info-fieldset {
+  margin: 20px 0;
+  @include dimensions(false, 100%);
+  @include flexBox(center, center, column);
+  display: -ms-flexbox;
+  padding: 15px 0;
+  .input-wrapper {
+    @include flexBox(center, space-between);
+    display: -ms-flexbox;
+    @include dimensions(false, inherit);
+
+    .input-layout {
+      flex: 1;
+      margin: 10px 0;
+      width: 100%;
+      @include flexBox(center, center, column);
+      display: -ms-flexbox;
+
+      .dkt-labels {
+        margin: 20px 0;
+        font-size: 1.1em;
+      }
+      .input-container {
+        margin: 20px 0;
+        @include dimensions(50px, 90%);
+        align-items: center;
+        display: flex;
+        box-shadow: 0 1px 2px 1px whitesmoke;
+
+        .icon-area {
+          position: relative;
+          z-index: 2;
+          flex: 0.15;
+          min-width: 40px;
+          @include dimensions(50px, false);
+          @include flexBox(center, center);
+          background-color: #0082c3;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+
+          .fa-walking,
+          .fa-skiing-nordic,
+          .fa-envelope,
+          .fa-mobile-alt {
+            @include dimensions(false, 10%);
+            font-size: 22px;
+            color: #fff;
+            margin-right: 10px;
+          }
+        }
+
+        .dkt-input-field {
+          flex: 0.8;
+          @include dimensions(50px, false);
+          border: none;
+          border-bottom: 1px solid whitesmoke;
+          outline: none;
+          font-size: 1.2em;
+          color: #323232;
+          transition: 0.3s ease-in-out;
+          -webkit-transition: 0.2s ease-in-out;
+          text-indent: 10px;
+
+          &:focus {
+            border-color: #0082c3;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cal-wrapper {
+  @include flexBox(center, center, column);
+  display: -ms-flexbox;
+  @include dimensions(false, 100%);
+}
+
+.calendar-container {
+  margin: 20px 0;
+  @include flexBox(center, center, column);
+  display: -ms-flexbox;
+  @include dimensions(false, 100%);
+}
+
+.calendar-header {
+  @include flexBox(center, center);
+  display: -ms-flexbox;
+  @include attr(
+    background-image,
+    linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)
+  );
+  @include attr(color, #fff);
+  @include dimensions(80px, 100%);
+  margin: 1px;
+  border-radius: 5px;
+  color: #323232;
+}
+
+.calendar-days {
+  @include dimensions(70px, 100%);
+  margin: 1px;
+  @include attr(background-color, #0082c3);
+  align-items: center;
+  -ms-flex-align: center;
+  justify-items: center;
+  display: grid;
+  display: -ms-grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-days > div {
+  color: #fff;
+}
+
+.calendar-time {
+  @include dimensions(false, 100%);
+  -ms-flex-align: center;
+  align-items: flex-start;
+  justify-items: center;
+  display: grid;
+  display: -ms-grid;
+  min-height: 300px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1px;
+
+  div {
+    @include dimensions(100%, 100%);
+    @include flexBox(center, flex-start, column);
+    display: -ms-flexbox;
+    .no_time_frame {
+      // background-color: rgb(170, 33, 33);
+      background-color: rgb(199, 199, 199);
+      color: #fff;
+      border-left: 1px solid transparent;
+      margin: 1px;
+      justify-content: center;
+      cursor: not-allowed;
+    }
+    .blank_frame {
+      width: 100%;
+      height: 80px;
+      background-color: rgb(199, 199, 199);
+      color: #fff;
+      border-left: 1px solid transparent;
+      margin: 1px;
+      justify-content: center;
+      cursor: not-allowed;
+    }
+  }
+  div .time_frame {
+    width: 100%;
+    height: 80px;
+    margin: 1px;
+    font-size: 1.2em;
+    background-color: rgb(245, 245, 245);
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    @include flexBox(center, center, column);
+    -ms-flex-align: center;
+    cursor: not-allowed;
+
+    &:hover {
+      border: 1px solid #0082c3;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #0082c3;
+    }
+    &.selected {
+      background-color: #0082c3;
+      color: #fff;
+      border-radius: 5px;
+    }
+    &.notAvailable {
+      background-color: rgb(223, 72, 75) !important;
+      border-radius: 5px !important;
+      border: 1px solid red !important;
+      color: #fff !important;
+      cursor: not-allowed;
+    }
+    .alert_msg {
+      text-align: center;
+      color: #fff;
+    }
+  }
+}
+
+.reservation-summary {
+  @include dimensions(false, 100%);
+  @include flexBox(center, center, column);
+  display: -ms-flexbox;
+  margin: 40px 0;
+  .summary-wrapper {
+    @include flexBox(center, space-between);
+    display: -ms-flexbox;
+    @include dimensions(false, 90%);
+    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    .summary-layout {
+      margin: 5px 0;
+      @include dimensions(false, 45%);
+      @include flexBox(center, space-between, column);
+      display: -ms-flexbox;
+      text-align: justify;
+      .summary_input_container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin: 10px 0;
+        overflow: hidden;
+        border-radius: 5px;
+        .summary_icon_area {
+          flex: 0.15;
+          @include flexBox(center, center);
+          background-color: #0082c3;
+          height: inherit;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          min-width: 30px;
+          i {
+            color: #fff;
+          }
+        }
+        .summary-input {
+          flex: 0.85;
+          background-color: whitesmoke;
+          font-size: 1.1em;
+          text-indent: 15px;
+          color: #888888;
+          padding: 20px;
+        }
+      }
+      .label {
+        font-weight: 700;
+        font-size: 1.1em;
+      }
+    }
+  }
+}
+
+/* ---------- Back Office rendering  */
+
+.filters {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  @include flexBox(center, center);
+  margin: 20px 0;
+  .drp_container,
+  .store_container {
+    position: relative;
+    .time_drp-down,
+    .store_drp-down {
+      position: relative;
+      margin-right: 80px;
+      width: 200px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #0082c3;
+      text-align: center;
+      color: #0082c3;
+      @include flexBox(center, flex-start);
+      padding-left: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: #0082c3;
+      }
+      &.active {
+        color: #fff;
+        border: 1px solid rgb(255, 136, 0);
+        background-color: rgb(255, 136, 0);
+      }
+      span {
+        pointer-events: none;
+      }
+    }
+    .drop-list {
+      display: none;
+      background-color: #fff;
+      position: absolute;
+      bottom: -500px;
+      left: 0%;
+      overflow-y: scroll;
+      max-height: 500px;
+      width: 250px;
+      z-index: 3;
+      box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+      &.open {
+        display: block;
+      }
+      .time_drop-item {
+        @include flexBox(center, flex-start);
+        padding-left: 20px;
+        height: 50px;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+        &:hover {
+          color: #fff;
+          background-color: #0082c3;
+        }
+        &.default {
+          border-bottom: 1px solid rgb(218, 218, 218);
+        }
+      }
+    }
+    .store_drop-list {
+      display: none;
+      background-color: #fff;
+      position: absolute;
+      left: 0%;
+      width: 250px;
+      overflow-y: scroll;
+      bottom: -150px;
+      z-index: 3;
+      box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+      &.open {
+        display: block;
+      }
+      .store_drop-item {
+        @include flexBox(center, flex-start);
+        padding-left: 20px;
+        height: 50px;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+        &:hover {
+          color: #fff;
+          background-color: #0082c3;
+        }
+        &.default {
+          border-bottom: 1px solid rgb(218, 218, 218);
+        }
+      }
+    }
+  }
+  .validation_btn {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    text-align: center;
+    color: #0082c3;
+    border: 1px solid #0082c3;
+    border-radius: 5px;
+    @include flexBox(center, center);
+    outline-width: 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: #fff;
+      background-color: #0082c3;
+    }
+  }
+}
+
+.responses {
+  @include dimensions(false, 95%);
+  margin: 20px 0;
+  @include flexBox(center, space-between);
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+}
+
+.reservation-info-box {
+  @include dimensions(250px, 48%);
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  @include attr(
+    background-image,
+    linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)
+  );
+  @include flexBox(center, center);
+  display: -ms-flexbox;
+  .toolbox-info {
+    flex: 1;
+    &.column {
+      @include flexBox(center, center, column);
+      display: -ms-flexbox;
+    }
+    .data-info {
+      margin: 5px 0;
+    }
+  }
+}
+
+/* --------- LOGIN ------------------- */
+
+.login_bg {
+  position: relative;
+  @include flexBox(center, center);
+  width: 100%;
+  min-height: 100vh;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/img/login-bg.jpg");
+  .login_logo_container {
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    .logo_container_img {
+      width: 20%;
+    }
+  }
+}
+
+.login_panel {
+  width: 40%;
+  max-width: 600px;
+  @include flexBox(center, center, column);
+  height: 300px;
+  .login-container {
+    margin: 10px 0;
+    .login_label {
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      margin: 10px 0;
+    }
+    .login_input_container {
+      height: 40px;
+      @include flexBox(center, center);
+      width: 250px;
+      margin: 10px 0;
+      background-color: rgba(245, 245, 245, 0.363);
+      .login_icon_container {
+        flex: 0.15;
+        @include flexBox(center, center);
+        height: inherit;
+        &.error {
+          transition: background-color 0.3s ease-in-out;
+          background-color: rgb(197, 63, 63);
+          i {
+            color: #fff;
+          }
+        }
+        &.success {
+          transition: background-color 0.3s ease-in-out;
+          background-color: rgb(59, 177, 59);
+          i {
+            color: #fff;
+          }
+        }
+      }
+      #username,
+      #username:focus,
+      #username:active,
+      #password,
+      #password:active,
+      #password:focus {
+        flex: 0.85;
+        outline: none;
+        border: 0;
+        text-indent: 15px;
+        height: inherit;
+        background-color: rgba(245, 245, 245, 0.363);
+        &:-internal-autofill-selected {
+          background-color: rgba(245, 245, 245, 0.363) !important;
+        }
+      }
+    }
+  }
+}
+
+.message {
+  font-style: italic;
+  font-size: 0.9em;
+  height: 30px;
+  @include flexBox(center, center);
+
+  &.success {
+    color: rgb(59, 177, 59);
+    animation: animIn 0.1s linear;
+  }
+  &.fail {
+    color: rgb(197, 63, 63);
+    animation: animIn 0.1s linear;
+  }
+}
+
+@keyframes animIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.login_submit {
+  height: 35px;
+  border-radius: 5px;
+  margin-top: 15px;
+  width: 120px;
+  padding: 7px 0;
+  float: right;
+  @include flexBox(center, center);
+  outline: none;
+  border: none;
+  background-color: #0082c3;
+  span {
+    color: #fff;
+  }
+}
+
+/*---------------- Media classes ---------------------- */
+
+@media screen and (max-width: 1200px) {
+  .root {
+    @include dimensions(false, 95%);
+    .time_frame {
+      &.notAvailable {
+        font-size: 1em !important;
+      }
+    }
+  }
+  .responses {
+    flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 826px) {
+  .filters {
+    @include flexBox(center, center, column);
+  }
+  .time_drp-down,
+  .store_drp-down,
+  .validation_btn {
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+  }
+  .time_drp-down,
+  .store_drp-down {
+    @include flexBox(center, center!important);
+    padding-left: 0 !important;
+  }
+  :root {
+    font-size: 0.8em;
+  }
+  .root {
+    @include dimensions(false, 95%);
+  }
+  .dkt-input-field {
+    font-size: 0.9em;
+  }
+  .time_frame,
+  .blank_frame {
+    font-size: 0.8em !important;
+  }
+  .input-wrapper,
+  .summary-wrapper {
+    flex-direction: column !important;
+  }
+  .dkt-labels,
+  .input-container {
+    margin: 10px 0 !important;
+  }
+  .time_frame,
+  .blank_frame {
+    height: 60px !important;
+  }
+  .summary-layout {
+    align-items: flex-start !important;
+    width: 70% !important;
+  }
+  .reservation-info-box {
+    width: 95% !important;
+  }
+}

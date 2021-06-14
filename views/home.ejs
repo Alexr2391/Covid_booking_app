@@ -1,0 +1,143 @@
+<%- include ('./partials/head.ejs') %>
+
+<div class="<%=message.class%>"><%= message.success%></div>
+<form id="form_booking" name="dkt_booking">
+    <section class="user-info-fieldset">
+        <h2 class="user-steps-header">1. Ενημερώστε τα στοιχεία σας</h2>
+        <div class="select-layout">
+            <label class="dkt-labels" for="store_id">Κατάστημα επίσκεψης:</label>
+            <div class="selector-placeholder">
+                <select class="store_select" id="store_id" required name="store_id" class="selector">
+                    <option value="">Επιλέξτε κατάστημα</option>
+                    <option value="Spata">Decathlon Σπάτα</option>
+                    <option value="Corinth">Decathlon Κόρινθος</option>
+                </select>
+                <div class="selector_selected">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <div class="input-layout">
+                <div class="input-container">
+                    <div class="icon-area">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <input class="dkt-input-field" type="text" minlength="3" required id="name" placeholder="Όνομα / Name">
+                </div>
+            </div>
+            <div class="input-layout">
+                <div class="input-container">
+                    <div class="icon-area">
+                        <i class="fas fa-skiing-nordic"></i>
+                    </div>
+                    <input class="dkt-input-field" type="text"  minlength="4" required id="lname" placeholder='Έπίθετο / Surname'>
+                </div>
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <div class="input-layout">
+                <div class="input-container">
+                    <div class="icon-area">
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <input class="dkt-input-field" type="text"  required id="email" placeholder="example@mail.com">
+                </div>
+            </div>
+            <div class="input-layout">
+                <div class="input-container">
+                    <div class="icon-area">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <input class="dkt-input-field" type="text"  minlength="10" required id="tel" placeholder="Τηλέφωνο / Telephone">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="calendar-container">
+        <h2 class="user-steps-header m2">2. Επιλέξτε ημερομηνία επίσκεψης στο κατάστημα</h2>
+        <div class="cal-wrapper">
+            <div class="calendar-header">
+            </div>
+            <div class="calendar-days"></div>
+            <div class="calendar-time">
+                <div class="timeline"></div>
+                <div class="timeline"></div>
+                <div class="timeline"></div>
+                <div class="timeline"></div>
+                <div class="timeline"></div>
+                <div class="timeline"></div>
+                <div class="timeline"></div>
+            </div>
+        </div>
+        <input type="hidden" value="" id="booked">
+    </section>
+
+    <section class="reservation-summary">
+        <h2 class="user-steps-header m4">3. 'Ελέγξτε τα στοιχεία σας και επιβεβαιώστε την επισκεψή σας</h2>
+        <span class="messages"></span>
+        <div class="summary-wrapper">
+            <div class="summary-layout">
+                <div class="label">'Ωρα επίσκεψης:</div>
+                <div class="summary_input_container">
+                    <div class="summary_icon_area">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                    <div class="verify-input-5 summary-input">Δεν έχει ενημερωθεί</div>
+                </div>
+            </div>
+            <div class="summary-layout">
+                <div class="label">'Ονομα:</div>
+                <div class="summary_input_container">
+                    <div class="summary_icon_area">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <div class="verify-input-1 summary-input">Δεν έχει ενημερωθεί</div>
+                </div>
+            </div>
+            <div class="summary-layout">
+                <div class="label">Επίθετο:</div>
+                <div class="summary_input_container">
+                    <div class="summary_icon_area">
+                        <i class="fas fa-skiing-nordic"></i>
+                    </div>
+                    <div class="verify-input-2 summary-input">Δεν έχει ενημερωθεί</div>
+                </div>
+            </div>
+            <div class="summary-layout">
+                <div class="label">Διεύθυνση email:</div>
+                <div class="summary_input_container">
+                    <div class="summary_icon_area">
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <div class="verify-input-3 summary-input">Δεν έχει ενημερωθεί</div>
+                </div>
+            </div>
+            <div class="summary-layout">
+                <div class="label">Τηλέφωνο:</div>
+                <div class="summary_input_container">
+                    <div class="summary_icon_area">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                    </div>
+                    <div class="verify-input-4 summary-input">Δεν έχει ενημερωθεί</div>
+                </div>
+            </div>
+
+            <div class="summary-layout">
+                    <div class="label">Κατάστημα:</div>
+                    <div class="summary_input_container">
+                        <div class="summary_icon_area">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </div>
+                        <div class="verify-input-6 summary-input">Δεν έχει ενημερωθεί</div>
+                    </div>
+            </div>
+
+        </div>
+        <button class="dkt-button" id="submit">Επιβεβαίωση</button>
+    </section>
+</form>
+
+<%- include ('./partials/footer.ejs') %>

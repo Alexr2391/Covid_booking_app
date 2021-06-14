@@ -1,0 +1,20 @@
+@mixin attr($attr, $value) {
+    #{$attr} : $value;
+}
+
+@mixin flexBox($alignType, $justifyType, $dir: row) {
+    display: flex;
+    align-items : $alignType;
+    justify-content: $justifyType;
+    flex-direction: $dir;
+}
+
+@mixin dimensions($height: false, $width: false) {
+    @if $height {
+        height : $height;
+    }
+    @if $width {
+        width: $width;
+    }
+}
+

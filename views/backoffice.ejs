@@ -1,0 +1,66 @@
+<%- include ('./partials/head.ejs') %>
+
+<section class="filters">
+        <% const filterList = Array.from(new Set(filters.map(item => item.date))).sort() %>
+        <div class="drp_container">
+                <div class="time_drp-down">
+                        <span id="timeframe"><%=query?.time ? query.time : "All"%></span>
+                </div>
+                <div class="drop-list">
+                    <div class="time_drop-item default">All</div>
+                <% for(let elements of filterList) { %>
+                    <div class="time_drop-item"><%=elements%></div>
+                <% } %>
+                </div>
+        </div>
+        <% const storeList = Array.from(new Set(filters.map(item => item.store))) %>
+        <div class="store_container">
+                <div class="store_drp-down">
+                        <span id="store"><%=query?.store ? query.store : "All"%></span>
+                </div>
+                <div class="store_drop-list">
+                    <div class="store_drop-item default">All</div>
+                <% for(let elements of storeList) { %>
+                    <div class="store_drop-item"><%= elements %></div>
+                <% } %>
+                </div>
+        </div>
+        <button class="validation_btn">Submit</button>
+</section>
+
+<%if(response.length === 0) { %>
+        <span>No results</span>
+<%} else if (response.length >= max) {%>
+        <span>Total results: <%=max%>+</span>
+<%} else { %>
+        <span>Total results: <%= response.length %></span>
+<% } %>
+
+<section class="responses">
+<% for(let element of response) { %>
+
+        <% const {name, lname, email, tel, date,store, submitDate, _id} = element %>
+        <div class="reservation-info-box">
+                <div class="toolbox-info">
+                        <h3 class="data-header"><%= name %> <%= lname %></h3>
+                        <div class="data-info"><b>Email:</b> <%= email %></div>
+                        <div class="data-info"><b>Tel:</b> <%= tel %></div>
+                        <div class="data-info"><b>Date:</b> <%= date %></div>
+                        <div class="data-info"><b>Store:</b> <%= store %></div>
+                        <div class="data-info"><b>Submitted:</b> <%= submitDate %></div>
+                </div>
+
+                <div class="toolbox-info column">
+                        <button class="cancel-button btn-info" data-ref="<%= _id %>">Close Reservation</button>
+                        <button class="send-button btn-info" data-mailer="<%= _id %>"> Resend Email</button>
+                        <button class="cancel-button btn-info" data-alert="<%= _id %>"> Alert cancellation</button>
+                </div>
+        </div>
+        
+<% } %>
+</section>
+        </main>
+        <script defer src="/js/applicationhandler.js"></script>
+        <script defer src="/js/filters.js"></script>
+</body>
+</html>
